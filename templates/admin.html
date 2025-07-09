@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <form method="POST">
+        <h2>Admin - Manage Destinations</h2>
+        <input type="text" name="destination" placeholder="Destination" required><br>
+        <input type="text" name="place" placeholder="Place Name" required><br>
+        <textarea name="description" placeholder="Description" required></textarea><br>
+        <button type="submit">Add Place</button>
+    </form>
+
+    <h3>Existing Places</h3>
+    <ul>
+        {% for place in places %}
+        <li><strong>{{ place[2] }}</strong> ({{ place[1] }}) - {{ place[3] }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="/home">← Back to Home</a></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results - {{ destination }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Tourist Places in {{ destination }}</h2>
+    <ul>
+        {% for place in places %}
+        <li><strong>{{ place[0] }}</strong>: {{ place[1] }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Recommended Hotels</h3>
+    <ul>
+        {% for hotel in hotels %}
+        <li><strong>{{ hotel[0] }}</strong> - Rating: {{ hotel[1] }}</li>
+        {% endfor %}
+    </ul>
+    <p><a href="/home">← Back to Home</a></p>
+</body>
+</html>
